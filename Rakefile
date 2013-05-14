@@ -39,7 +39,7 @@ namespace :db do
     raise 'File already exists' if File.exists?(path)
     f = File.new(path, 'w')
     f.write <<-EOF.gsub(/[^\S\n]{6}/, '').strip
-      class #{klass} << ActiveRecord::Migration
+      class #{klass} < ActiveRecord::Migration
         def change
           # Migration goes here.
         end
